@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.fiapdevops.tcdmicroservices</groupId>
+  <artifactId>tmx-parent-pom</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>tmx-parent-pom</name>
+  <description>FIAP DEVOPS - Projeto de Conclusão de Disciplina - Microservices</description>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.4.4.RELEASE</version>
+  </parent>
+  <modules>
+      <module>users-microservice</module>
+      <module>discovery-microservice</module>
+      <module>api-gateway-microservice</module>
+      <module>recommendation-microservice</module>
+      <module>config-microservice</module>
+      <module>hystrix-dashboard</module>
+      <module>consul-microservice</module>
+      <module>movie-microservice</module>
+      <module>movies-ui</module>
+  </modules>
+</project>

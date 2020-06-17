@@ -1,0 +1,10 @@
+discovery:
+  image: fiapdevops/discovery-server
+  ports:
+   - "8761:8761"
+configserver:
+  image: fiapdevops/configuration-server
+  ports:
+   - "8888:8888"
+  links:
+   - discovery
