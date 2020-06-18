@@ -1,6 +1,7 @@
-FROM java:8
-VOLUME /tmp
-ADD discovery-server-0.0.1.jar app.jar
-RUN bash -c 'touch /app.jar'
-EXPOSE 8761
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+FROM openjdk:8-jdk-alpine
+RUN  apk update && apk upgrade && apk add netcat-openbsd
+RUN mkdir -p /usr/local/eurekaserver
+ADD ./discovery-server-0.0.1-SNAPSHOT.jar /usr/local/eurekaserver/
+ADD run.sh run.sh
+RUN chmod +x run.sh
+CMD ./run.sh
