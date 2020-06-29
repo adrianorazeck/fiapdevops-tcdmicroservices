@@ -1,10 +1,22 @@
-discovery:
-  image: fiapdevops/discovery-server
-  ports:
-   - "8761:8761"
-configserver:
-  image: fiapdevops/configuration-server
-  ports:
-   - "8888:8888"
-  links:
-   - discovery
+version: '3'
+services:
+  eurekaserver:
+    image:   fiapdevops/discovery-server:latest
+    network_mode: bridge
+    container_name: eurekaserver
+    expose:
+      - 8761
+    ports:
+      - "8761:8761"
+  configserver:
+    image:   fiapdevops/configuration-server:latest
+    network_mode: bridge
+    container_name: configserver
+    expose:
+      - 8888
+    ports:
+      - "8888:8888"
+    depends_on:
+      - eurekaserver
+    links:
+      - eurekaserver

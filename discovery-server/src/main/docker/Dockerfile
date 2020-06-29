@@ -1,7 +1,8 @@
 FROM openjdk:8-jdk-alpine
 RUN  apk update && apk upgrade && apk add netcat-openbsd
-RUN mkdir -p /usr/local/eurekaserver
-ADD ./discovery-server-0.0.1-SNAPSHOT.jar /usr/local/eurekaserver/
-ADD run.sh run.sh
-RUN chmod +x run.sh
-CMD ./run.sh
+VOLUME /tmp
+EXPOSE 8761
+RUN mkdir -p /app/
+RUN mkdir -p /app/logs/
+ADD ./discovery-server-0.0.1-SNAPSHOT.jar /app/app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=container", "-jar", "/app/app.jar"]

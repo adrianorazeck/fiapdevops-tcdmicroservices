@@ -7,4 +7,5 @@ spring:
      config:
        server:
            native:
-              searchLocations: file:///D:\arazeck\workspaces\java\fiapdevops-tcdmicroservices\fiapdevops-tcdmicroservices\configuration-server\src\main\resources\config
+              searchLocations: file:///D:\arazeck\workspaces\java\fiapdevops-tcdmicroservices\fiapdevops-tcdmicroservices\configuration-server\src\main\resources\config\entregaservice,
+                               file:///D:\arazeck\workspaces\java\fiapdevops-tcdmicroservices\fiapdevops-tcdmicroservices\configuration-server\src\main\resources\config\pedidoservice 
