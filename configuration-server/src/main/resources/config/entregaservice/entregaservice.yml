@@ -1,1 +1,2 @@
 example.property: "I AM IN THE DEFAULT"
+#spring.datasource.url: "jdbc:postgresql://localhost:5432/DBENTREGASERVICE"
