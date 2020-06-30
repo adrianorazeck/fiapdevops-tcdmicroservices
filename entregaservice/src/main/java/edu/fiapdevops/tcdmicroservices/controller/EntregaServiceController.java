@@ -39,10 +39,10 @@ public class EntregaServiceController {
 	}
 	
 	@RequestMapping(value = "/{uf}/", method = RequestMethod.GET)
-	public String getSLAByUF(@PathVariable("uf") String UF) {
+	public Entrega getSLAByUF(@PathVariable("uf") String uf) {
 		logger.debug("Found tmx-correlation-id in entregaSLA-service-controller: {} ",
 				request.getHeader("tmx-correlation-id"));
-		return entregaSLAService.getSLAByUF(UF);
+		return entregaSLAService.getSLAByUF(uf);
 	}
 	
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)

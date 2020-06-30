@@ -1,20 +1,34 @@
-DROP TABLE IF EXISTS licenses;
+DROP TABLE IF EXISTS public.TBENTREGA;
 
-CREATE TABLE licenses (
-  license_id        VARCHAR(100) PRIMARY KEY NOT NULL,
-  organization_id   TEXT NOT NULL,
-  license_type      TEXT NOT NULL,
-  product_name      TEXT NOT NULL,
-  license_max       INT   NOT NULL,
-  license_allocated INT,
-  comment           VARCHAR(100));
+CREATE TABLE public.TBENTREGA (
+  ID        VARCHAR(2) PRIMARY KEY NOT NULL,
+  UF        VARCHAR(2) NOT NULL,
+  SLA       VARCHAR(3) NOT NULL);
 
-
-INSERT INTO licenses (license_id,  organization_id, license_type, product_name, license_max, license_allocated)
-VALUES ('f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a', 'e254f8c-c442-4ebe-a82a-e2fc1d1ff78a', 'user','customer-crm-co', 100,5);
-INSERT INTO licenses (license_id,  organization_id, license_type, product_name, license_max, license_allocated)
-VALUES ('t9876f8c-c338-4abc-zf6a-ttt1', 'e254f8c-c442-4ebe-a82a-e2fc1d1ff78a', 'user','suitability-plus', 200,189);
-INSERT INTO licenses (license_id,  organization_id, license_type, product_name, license_max, license_allocated)
-VALUES ('38777179-7094-4200-9d61-edb101c6ea84', '442adb6e-fa58-47f3-9ca2-ed1fecdfe86c', 'user','HR-PowerSuite', 100,4);
-INSERT INTO licenses (license_id,  organization_id, license_type, product_name, license_max, license_allocated)
-VALUES ('08dbe05-606e-4dad-9d33-90ef10e334f9', '442adb6e-fa58-47f3-9ca2-ed1fecdfe86c', 'core-prod','WildCat Application Gateway', 16,16);
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('01', 'AC', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('02', 'AL', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('03', 'AP', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('04', 'AM', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('05', 'BA', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('06', 'CE', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('07', 'DF', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('08', 'ES', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('09', 'GO', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('10', 'MA', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('11', 'MT', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('12', 'MS', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('13', 'MG', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('14', 'PA', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('15', 'PB', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('16', 'PR', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('17', 'PE', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('18', 'PI', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('19', 'RJ', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('20', 'RN', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('21', 'RS', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('22', 'RO', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('23', 'RR', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('24', 'SC', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('25', 'SP', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('26', 'SE', '000');
+INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('27', 'TO', '000');

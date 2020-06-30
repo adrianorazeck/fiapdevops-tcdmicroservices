@@ -9,6 +9,6 @@ import edu.fiapdevops.tcdmicroservices.model.Entrega;
 
 @Repository
 public interface EntregaRepository extends CrudRepository<Entrega, String> {
-	String findSLAByUF(String UF);
-	Entrega findEntregaSLAById(String id);
+	Entrega findByuf(String uf);
+	Entrega findByid(String id);
 }

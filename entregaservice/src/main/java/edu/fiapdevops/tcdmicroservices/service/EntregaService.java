@@ -14,7 +14,7 @@ import edu.fiapdevops.tcdmicroservices.repository.EntregaRepository;
 public class EntregaService {
 
 	@Autowired
-	private EntregaRepository entregaRepositoty;
+	private EntregaRepository entregaRepository;
 
 	@Autowired
 	private ServiceConfig config;
@@ -29,33 +29,33 @@ public class EntregaService {
 					@HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5") })
 	
 	public Iterable<Entrega> getAllEntregaSLA() {
-		return entregaRepositoty.findAll();
+		return entregaRepository.findAll();
 	}
 	
-	public String getSLAByUF(String UF) {
-		return entregaRepositoty.findSLAByUF(UF);
+	public Entrega getSLAByUF(String uf) {
+		return entregaRepository.findByuf(uf);
 	}
 	
 	public Entrega getEntregaById(String id) {
-		return entregaRepositoty.findEntregaSLAById(id);
+		return entregaRepository.findByid(id);
 	}
 
-	private Entrega buildFallbackEntrega(String UF) {
-		Entrega entrega = new Entrega().withId("00").withUF(UF)
+	private Entrega buildFallbackEntrega(String uf) {
+		Entrega entrega = new Entrega().withId("00").withUF(uf)
 				.withSLA("Sorry no SLA information currently available");
 		return entrega;
 	}
 
 	public void saveEntregaSLA(Entrega entrega) {
-		entregaRepositoty.save(entrega);
+		entregaRepository.save(entrega);
 	}
 	
 	public void updateEntregaSLA(Entrega entrega) {
-		entregaRepositoty.save(entrega);
+		entregaRepository.save(entrega);
 	}
 
 	public void deleteEntregaSLA(Entrega entrega) {
-		entregaRepositoty.delete(entrega);
+		entregaRepository.delete(entrega);
 	}
 
 }
