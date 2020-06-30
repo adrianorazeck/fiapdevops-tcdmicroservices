@@ -1,34 +1,34 @@
-DROP TABLE IF EXISTS public.TBENTREGA;
+DROP TABLE IF EXISTS entregas;
 
-CREATE TABLE public.TBENTREGA (
-  ID        VARCHAR(2) PRIMARY KEY NOT NULL,
-  UF        VARCHAR(2) NOT NULL,
-  SLA       VARCHAR(3) NOT NULL);
+CREATE TABLE entregas (
+  id        VARCHAR(2) PRIMARY KEY NOT NULL,
+  uf        VARCHAR(2) NOT NULL,
+  sla       INTEGER NOT NULL);
 
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('01', 'AC', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('02', 'AL', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('03', 'AP', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('04', 'AM', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('05', 'BA', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('06', 'CE', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('07', 'DF', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('08', 'ES', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('09', 'GO', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('10', 'MA', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('11', 'MT', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('12', 'MS', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('13', 'MG', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('14', 'PA', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('15', 'PB', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('16', 'PR', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('17', 'PE', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('18', 'PI', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('19', 'RJ', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('20', 'RN', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('21', 'RS', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('22', 'RO', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('23', 'RR', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('24', 'SC', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('25', 'SP', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('26', 'SE', '000');
-INSERT INTO TBENTREGA (ID,  UF, SLA) VALUES ('27', 'TO', '000');
+INSERT INTO entregas (id,  uf, sla) VALUES ('01', 'AC', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('02', 'AL', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('03', 'AP', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('04', 'AM', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('05', 'BA', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('06', 'CE', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('07', 'DF', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('08', 'ES', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('09', 'GO', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('10', 'MA', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('11', 'MT', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('12', 'MS', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('13', 'MG', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('14', 'PA', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('15', 'PB', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('16', 'PR', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('17', 'PE', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('18', 'PI', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('19', 'RJ', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('20', 'RN', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('21', 'RS', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('22', 'RO', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('23', 'RR', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('24', 'SC', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('25', 'SP', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('26', 'SE', 0);
+INSERT INTO entregas (id,  uf, sla) VALUES ('27', 'TO', 0);

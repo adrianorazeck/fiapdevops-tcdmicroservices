@@ -18,7 +18,8 @@ public class EntregaService {
 
 	@Autowired
 	private ServiceConfig config;
-
+	
+	/*
 	@HystrixCommand(fallbackMethod = "buildFallbackEntrega", threadPoolKey = "EntregaByUFThreadPool", threadPoolProperties = {
 			@HystrixProperty(name = "coreSize", value = "30"),
 			@HystrixProperty(name = "maxQueueSize", value = "10") }, commandProperties = {
@@ -27,6 +28,7 @@ public class EntregaService {
 					@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "7000"),
 					@HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "15000"),
 					@HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5") })
+	*/
 	
 	public Iterable<Entrega> getAllEntregaSLA() {
 		return entregaRepository.findAll();
