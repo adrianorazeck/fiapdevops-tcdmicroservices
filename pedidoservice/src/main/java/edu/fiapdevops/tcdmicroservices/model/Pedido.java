@@ -15,10 +15,10 @@ public class Pedido {
 	@Column(name = "status", nullable = false)
 	private String status;
 
-	@Column(name = "dataCriacao", nullable = false)
+	@Column(name = "datacriacao", nullable = false)
 	private String dataCriacao;
 
-	@Column(name = "dataEntrega", nullable = false)
+	@Column(name = "dataentrega", nullable = false)
 	private String dataEntrega;
 
 	@Column(name = "produto", nullable = false)
