@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 
 @Entity
 @Table(name = "pedidos")
@@ -29,13 +31,16 @@ public class Pedido {
 
 	@Column(name = "uf", nullable = false)
 	private String uf;
-
+	
+	@Transient
+	private int sla = 0;
+	
 	@Column(name = "municipio", nullable = false)
 	private String municipio;
 
 	@Column(name = "cep", nullable = false)
 	private String cep = "";
-
+	
 	public String getId() {
 		return id;
 	}
@@ -86,6 +91,14 @@ public class Pedido {
 
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+	
+	public int getSla() {
+		return sla;
+	}
+
+	public void setSla(int sla) {
+		this.sla = sla;
 	}
 
 	public String getMunicipio() {
@@ -150,6 +163,11 @@ public class Pedido {
 
 	public Pedido withCep(String cep) {
 		setCep(cep);
+		return this;
+	}
+	
+	public Pedido withSla(int sla) {
+		setSla(sla);
 		return this;
 	}
 

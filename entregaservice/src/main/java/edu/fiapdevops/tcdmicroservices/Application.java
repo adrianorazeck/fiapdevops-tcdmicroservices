@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-
 @RefreshScope
 @SpringBootApplication
 @EnableEurekaClient
@@ -16,9 +15,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class Application {
 
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
-
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
-
+	
+	  public static void main(String[] args) {
+		  SpringApplication.run(Application.class, args);
+	  }
+	  
 }

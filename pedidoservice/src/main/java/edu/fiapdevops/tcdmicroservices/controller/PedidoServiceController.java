@@ -35,7 +35,7 @@ public class PedidoServiceController {
 	}
 	
 	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
-	public Pedido findByPedidoId (@PathVariable("id") String id){
+	public Pedido getPedido (@PathVariable("id") String id){
 		return pedidoService.getPedidoById(id);
 	}
 	

@@ -19,7 +19,7 @@ import edu.fiapdevops.tcdmicroservices.model.Entrega;
 import edu.fiapdevops.tcdmicroservices.service.EntregaService;
 
 @RestController
-@RequestMapping(value = "v1/entrega")
+@RequestMapping(value = "v1/api/entrega")
 public class EntregaServiceController {
 	@Autowired
 	private EntregaService entregaSLAService;
@@ -31,7 +31,7 @@ public class EntregaServiceController {
 
 	@GetMapping(value = "/")
 	public Iterable<Entrega> all (){
-		return entregaSLAService.getAllEntregaSLA();
+		return entregaSLAService.getAllEntrega();
 	}
 	
 	@RequestMapping(value = "/id/{id}", method=RequestMethod.GET)

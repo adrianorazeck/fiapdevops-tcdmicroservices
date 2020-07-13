@@ -3,10 +3,9 @@ package edu.fiapdevops.tcdmicroservices.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-
+import edu.fiapdevops.tcdmicroservices.clients.*;
 import edu.fiapdevops.tcdmicroservices.config.ServiceConfig;
+import edu.fiapdevops.tcdmicroservices.model.Entrega;
 import edu.fiapdevops.tcdmicroservices.model.Pedido;
 import edu.fiapdevops.tcdmicroservices.repository.PedidoRepository;
 
@@ -14,46 +13,35 @@ import edu.fiapdevops.tcdmicroservices.repository.PedidoRepository;
 public class PedidoService {
 
 	@Autowired
-	private PedidoRepository PedidoRepository;
-
+	private PedidoRepository pedidoRepository;
+	
 	@Autowired
-	private ServiceConfig config;
+	ServiceConfig config;
 	
-	/*
-	@HystrixCommand(fallbackMethod = "buildFallbackPedido", threadPoolKey = "PedidoByUFThreadPool", threadPoolProperties = {
-			@HystrixProperty(name = "coreSize", value = "30"),
-			@HystrixProperty(name = "maxQueueSize", value = "10") }, commandProperties = {
-					@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
-					@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "75"),
-					@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "7000"),
-					@HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "15000"),
-					@HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5") })
-	*/
-	
+	@Autowired
+	EntregaFeignClient entregaFeignClient;
+
 	public Iterable<Pedido> getAllPedido() {
-		return PedidoRepository.findAll();
+		return pedidoRepository.findAll();
 	}
 	
 	public Pedido getPedidoById(String id) {
-		return PedidoRepository.findByid(id);
+		Pedido pedido = pedidoRepository.findById(id).get();
+		Entrega entrega = entregaFeignClient.getEntrega(pedido.getUf());
+		pedido.setSla(entrega.getSla());
+		return pedido;
 	}
 
-/*	private Pedido buildFallbackPedido(String uf) {
-		Pedido Pedido = new Pedido().withId("00").withUf(uf);
-				.withSLA("Sorry no SLA information currently available");
-		return Pedido;
-	}*/
-
 	public void savePedido(Pedido Pedido) {
-		PedidoRepository.save(Pedido);
+		pedidoRepository.save(Pedido);
 	}
 	
 	public void updatePedido(Pedido Pedido) {
-		PedidoRepository.save(Pedido);
+		pedidoRepository.save(Pedido);
 	}
 
 	public void deletePedido(String id) {
-		PedidoRepository.deleteById(id);
+		pedidoRepository.deleteById(id);
 	}
 
 }

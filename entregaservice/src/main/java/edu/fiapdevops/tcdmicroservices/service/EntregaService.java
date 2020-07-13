@@ -17,20 +17,10 @@ public class EntregaService {
 	private EntregaRepository entregaRepository;
 
 	@Autowired
-	private ServiceConfig config;
+	ServiceConfig config;
 	
-	/*
-	@HystrixCommand(fallbackMethod = "buildFallbackEntrega", threadPoolKey = "EntregaByUFThreadPool", threadPoolProperties = {
-			@HystrixProperty(name = "coreSize", value = "30"),
-			@HystrixProperty(name = "maxQueueSize", value = "10") }, commandProperties = {
-					@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
-					@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "75"),
-					@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "7000"),
-					@HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "15000"),
-					@HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5") })
-	*/
 	
-	public Iterable<Entrega> getAllEntregaSLA() {
+	public Iterable<Entrega> getAllEntrega() {
 		return entregaRepository.findAll();
 	}
 	
@@ -40,12 +30,6 @@ public class EntregaService {
 	
 	public Entrega getEntregaById(String id) {
 		return entregaRepository.findByid(id);
-	}
-
-	private Entrega buildFallbackEntrega(String uf) {
-		Entrega entrega = new Entrega().withId("00").withUF(uf)
-				.withSLA("Sorry no SLA information currently available");
-		return entrega;
 	}
 
 	public void saveEntregaSLA(Entrega entrega) {

@@ -16,7 +16,7 @@ public class Entrega {
 	private String uf;
 
 	@Column(name = "sla", nullable = false)
-	private String sla = "";
+	private int sla = 0;
 
 
 	public String getId() {
@@ -35,11 +35,11 @@ public class Entrega {
 		this.uf = uf;
 	}
 
-	public String getSla() {
+	public int getSla() {
 		return sla;
 	}
 
-	public void setSLA(String sla) {
+	public void setSla(int sla) {
 		this.sla = sla;
 	}
 	
@@ -53,8 +53,8 @@ public class Entrega {
 		return this;
 	}
 
-	public Entrega withSLA(String sla) {
-		setSLA(sla);
+	public Entrega withSla(int sla) {
+		setSla(sla);
 		return this;
 	}
 
