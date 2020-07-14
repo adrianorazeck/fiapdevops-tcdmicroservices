@@ -21,17 +21,25 @@ public class PedidoService {
 	@Autowired
 	EntregaFeignClient entregaFeignClient;
 
+	private Pedido withPedidoSetSla(Pedido pedido) {
+		return pedido.withSla(entregaFeignClient.getEntrega(pedido.getUf()).getSla());
+	}
+
+	private Iterable<Pedido> withAllPedidosSetSla(Iterable<Pedido> allPedidos) {
+		allPedidos.forEach(pedido -> pedido.setSla(entregaFeignClient.getEntrega(pedido.getUf()).getSla()));
+		return allPedidos;
+	}
+
 	public Iterable<Pedido> getAllPedido() {
-		return pedidoRepository.findAll();
+		Iterable<Pedido> allPedidos = pedidoRepository.findAll();
+		return withAllPedidosSetSla(allPedidos);
 	}
 	
 	public Pedido getPedidoById(String id) {
-		Pedido pedido = pedidoRepository.findById(id).get();
-		Entrega entrega = entregaFeignClient.getEntrega(pedido.getUf());
-		pedido.setSla(entrega.getSla());
-		return pedido;
+		Pedido pedido = pedidoRepository.findById(id).get();		
+		return withPedidoSetSla(pedido);
 	}
-
+	
 	public void savePedido(Pedido Pedido) {
 		pedidoRepository.save(Pedido);
 	}
